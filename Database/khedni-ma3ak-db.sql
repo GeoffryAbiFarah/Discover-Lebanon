@@ -1,0 +1,1 @@
+CREATE DATABASE khedni-ma3ak-db;
