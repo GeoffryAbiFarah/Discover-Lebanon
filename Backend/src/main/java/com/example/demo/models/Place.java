@@ -58,4 +58,20 @@ public class Place {
 	public String getImage() {
 		return image;
 	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public void setArea(String area) {
+		this.area = area;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
+	}
 }

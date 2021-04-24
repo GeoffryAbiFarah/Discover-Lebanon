@@ -1,6 +1,7 @@
 package com.example.demo.services;
 
 import java.util.List;
+import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -43,5 +44,23 @@ public class PlaceService {
 	
 	public List<Place> getPlaceByArea (String area){
         return placeRepository.findPlaceByAreaIgnoreCase(area);
+    }
+
+    public Place getPlaceById(UUID id){ return placeRepository.findById(id).orElse(null);}
+
+    public Place postPlace(Place place){return placeRepository.save(place);}
+
+    public Place putPlace(UUID id, Place place){
+	    Place existingPlace = placeRepository.findById(id).orElse(null);
+	    existingPlace.setName(place.getName());
+	    existingPlace.setArea(place.getArea());
+	    existingPlace.setImage(place.getImage());
+	    existingPlace.setType(place.getType());
+	    return placeRepository.save(existingPlace);
+    }
+
+    public String deletePlace(UUID id){
+	    placeRepository.deleteById(id);
+	    return "Place deleted with id: " + id;
     }
 }

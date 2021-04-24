@@ -1,13 +1,10 @@
 package com.example.demo.api;
 
 import java.util.List;
+import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.example.demo.models.AreaTour;
 import com.example.demo.models.ContactUs;
@@ -69,6 +66,18 @@ public class Controller {
     public List<Place> getPlaceByArea(@RequestParam String area){
         return placeService.getPlaceByArea(area);
     }
+
+    @GetMapping("/places/id/{id}")
+	public Place getPlaceById(@PathVariable UUID id){ return placeService.getPlaceById(id);}
+
+    @PostMapping("/places")
+	public Place postPlace(@RequestBody Place place){ return placeService.postPlace(place);}
+
+	@PutMapping("/places/id/{id}")
+	public Place putPlace(@PathVariable UUID id,@RequestBody Place place){ return placeService.putPlace(id,place);}
+
+	@DeleteMapping("/places/id/{id}")
+	public String deletePlace(@PathVariable UUID id){ return placeService.deletePlace(id);}
 	
 
 	//AREA TOUR
