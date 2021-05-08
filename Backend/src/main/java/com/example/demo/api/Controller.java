@@ -14,6 +14,7 @@ import com.example.demo.services.ContactUsService;
 import com.example.demo.services.PlaceService;
 
 @RestController
+@RequestMapping("api/v1")
 public class Controller {
 	
 	@Autowired
