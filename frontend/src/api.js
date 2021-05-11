@@ -3,7 +3,7 @@
 //all places API CALL
 export const fetchDataAll = async () => {
     try {
-        const resp = await fetch(`/places`,{
+        const resp = await fetch(`/api/v1/places`,{
             headers:{
                 "accepts":"application/json"
             }
@@ -22,7 +22,7 @@ export const fetchDataAll = async () => {
 //Searched places by name, type and area API CALL
 export const fetchDataNameTypeArea = async (param) => {
     try {
-        const resp = await fetch(`/places-by-name-and-type-and-area?name=${param.name}&type=${param.type}&area=${param.area}`);
+        const resp = await fetch(`/api/v1/places-by-name-and-type-and-area?name=${param.name}&type=${param.type}&area=${param.area}`);
         const data = await resp.json();
         console.log(resp)
         return data;
@@ -35,7 +35,7 @@ export const fetchDataNameTypeArea = async (param) => {
 //Searched places by type and area API CALL
 export const fetchDataTypeArea = async (param) => {
     try {
-        const resp = await fetch(`/places-by-type-and-area?type=${param.type}&area=${param.area}`);
+        const resp = await fetch(`/api/v1/places-by-type-and-area?type=${param.type}&area=${param.area}`);
         const data = await resp.json();
         console.log(resp)
         return data;
@@ -48,7 +48,7 @@ export const fetchDataTypeArea = async (param) => {
 //Searched places by name and area API CALL
 export const fetchDataNameArea = async (param) => {
     try {
-        const resp = await fetch(`/places-by-name-and-area?name=${param.name}&area=${param.area}`);
+        const resp = await fetch(`/api/v1/places-by-name-and-area?name=${param.name}&area=${param.area}`);
         const data = await resp.json();
         console.log(resp)
         return data;
@@ -61,7 +61,7 @@ export const fetchDataNameArea = async (param) => {
 //Searched places by name and type API CALL
 export const fetchDataNameType = async (param) => {
     try {
-        const resp = await fetch(`/places-by-name-and-type?name=${param.name}&type=${param.type}`);
+        const resp = await fetch(`/api/v1/places-by-name-and-type?name=${param.name}&type=${param.type}`);
         const data = await resp.json();
         console.log(resp)
         return data;
@@ -74,7 +74,7 @@ export const fetchDataNameType = async (param) => {
 //search places by name API CALL
 export const fetchDataName = async (param) => {
     try {
-        const resp = await fetch(`/places-by-name?name=${param.name}`);
+        const resp = await fetch(`/api/v1/places-by-name?name=${param.name}`);
         const data = await resp.json();
         console.log(resp)
         return data;
@@ -86,7 +86,7 @@ export const fetchDataName = async (param) => {
 //search places by type API CALL
 export const fetchDataType = async (param) => {
     try {
-        const resp = await fetch(`/places-by-type?type=${param.type}`);
+        const resp = await fetch(`/api/v1/places-by-type?type=${param.type}`);
         const data = await resp.json();
         console.log(resp)
         return data;
@@ -98,7 +98,7 @@ export const fetchDataType = async (param) => {
 //search places by area API CALL
 export const fetchDataArea = async (param) => {
     try {
-        const resp = await fetch(`/places-by-area?area=${param.area}`);
+        const resp = await fetch(`/api/v1/places-by-area?area=${param.area}`);
         const data = await resp.json();
         console.log(resp)
         return data;
@@ -112,7 +112,7 @@ export const fetchDataArea = async (param) => {
 export const postAreaTour = async (data) => {
     try{
 
-        fetch("/add-area-tour",{
+        fetch("/api/v1/add-area-tour",{
             method: 'POST',
             headers: {
                 'Content-Type':'application/json',
@@ -129,7 +129,7 @@ export const postAreaTour = async (data) => {
 export const postFeedback = async (data) => {
     try{
 
-        fetch("/add-feedback",{
+        fetch("/api/v1/add-feedback",{
             method: 'POST',
             headers: {
                 'Content-Type':'application/json',
